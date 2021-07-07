@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TableContextProvider from './contexts/tableContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TableContextProvider>
+     <App />
+    </TableContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
