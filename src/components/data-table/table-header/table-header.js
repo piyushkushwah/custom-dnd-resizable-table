@@ -14,6 +14,11 @@ export const TableHeader = React.forwardRef((props, ref) => {
     activeIndex,
   } = useContext(TableContext);
 
+  const columnName = (col) => {
+    if(!col.includes('_')) return col.toUpperCase();
+    return col.split('_')[0].toUpperCase()+' '+col.split('_')[1].toUpperCase();
+  }
+
   return (
     <React.Fragment>
       <th
@@ -30,7 +35,7 @@ export const TableHeader = React.forwardRef((props, ref) => {
           onDragOver={handleDragOver}
           onDrop={handleOnDrop}
           onDragEnter={handleDragEnter}>
-          {props.col}
+          {columnName(props.col)}
         </div>
 
         <div
